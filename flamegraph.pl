@@ -504,7 +504,7 @@ my $line;
 my $maxdelta = 1;
 
 # reverse if needed
-foreach (<>) {
+while (defined($_ = <>)) {
 	chomp;
 	$line = $_;
 	if ($stackreverse) {
