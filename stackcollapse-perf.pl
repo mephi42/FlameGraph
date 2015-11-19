@@ -172,11 +172,13 @@ while (defined($_ = <>)) {
 	}
 
 	# event record start
-	if (/^(\S+\s*?\S*?)\s+(\d+)\s/) {
+	if (/^(\S+\s*?\S*?\s*?\S*?\s*?\S*?)\s+(\d+)\s/) {
 		# default "perf script" output has TID but not PID
 		# eg, "java 25607 4794564.109216: cycles:"
 		# eg, "java 12688 [002] 6544038.708352: cpu-clock:"
 		# eg, "V8 WorkerThread 25607 4794564.109216: cycles:"
+		# eg, "Hashed wheel ti 16854 [000]   107.260025:     311150 cycles:"
+		# eg, "New I/O boss #3 16127 [001]    80.097080:     346019 cycles:"
 		# other combinations possible
 		if ($include_tid) {
 			$pname = "$1-?/$2";
